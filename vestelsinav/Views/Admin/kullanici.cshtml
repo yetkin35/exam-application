@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="../../image/vestel-kirmizi-logo-buyuk.png" id="adminlogo" />
+        </div>
+
+        <div class="navbar-collapse collapse" style="position:relative; top:9px; left:700px;">
+            <ul class="nav navbar-nav" style="position:relative; bottom:7px;">
+                <li>@Html.ActionLink("ANASAYFA", "Index", "Home")</li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <div class="dropdown">
+                        <button class="btn btn-default" type="button" data-toggle="dropdown">KULLANICI<span class="caret"></span></button>
+
+                        <ul class="dropdown-menu">
+
+                            <li>@Html.ActionLink("KULLANICI EKLE", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("KULLANICI DÜZENLE", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("KULLANICI SİL", "Index", "Admin")</li>
+                        </ul>
+                    </div>
+                </li>
+                <li></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="btn btn-default" type="button" data-toggle="dropdown">KONU<span class="caret"></span></button>
+
+                        <ul class="dropdown-menu">
+
+                            <li>@Html.ActionLink("KONU EKLE", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("KONU DÜZENLE", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("KONU SİL", "Index", "Admin")</li>
+                        </ul>
+                    </div>
+                </li>
+                <li></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="btn btn-default" type="button" data-toggle="dropdown">SORU<span class="caret"></span></button>
+
+                        <ul class="dropdown-menu">
+
+                            <li>@Html.ActionLink("SORU EKLE", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("SORU DÜZENLE", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("SORU SİL", "Index", "Admin")</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="form-group" style="margin:auto; padding-top:50px; width:1000px;">
+    <table width="500px" style="margin:auto">
+
+        <tr>
+            <td style="color:red;" colspan="2" align="center"><h3><b>KULLANICI EKRANI</b></h3></td>
+        </tr>
+        <tr>
+            <td colspan="2"><hr /></td>
+        </tr>
+        <tr>
+            <td>Sicil Numarası :</td>
+            <td><input type="text" class="form-control" placeholder="" style="width:100%;"></td>
+        </tr>
+        <tr>
+            <td>İsim :</td>
+            <td><input type="text" class="form-control" placeholder="" style="width:100%;"></td>
+        </tr>
+        <tr>
+            <td>Soyisim :</td>
+            <td><input type="text" class="form-control" placeholder="" style="width:100%;"></td>
+        </tr>
+        <tr>
+            <td>Şifre :</td>
+            <td><input type="text" class="form-control" placeholder="" style="width:100%;"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><hr /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button class="btn btn-primary" style="width:100%; height:50px;">GİR</button></td>
+        </tr>
+    </table>
+</div>

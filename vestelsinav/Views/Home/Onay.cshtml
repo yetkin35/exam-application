@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using vestelsinav.Models
+<script>
+    var i = @ViewBag.egitimSuresi * 60;
+    localStorage.setItem("time", i);
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-2">
+                </div>
+                <div id="questionContent" class="col-lg-8 border" style="padding:2%;margin-top:10%;">
+                <ul>
+                    <li>
+                        psum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum ullamcorper nulla
+                    </li>
+                    <li>
+                        ut auctor lectus gravida imperdiet. Donec commodo, nisl a commodo condi
+                    </li>
+                    <li>
+                        Donec lacus lacus, interdum et massa sed, porttitor luctus ligula. Phasellus pellentesqu
+                    </li>
+                    <li>
+                        Proin sodales faucibus justo at porttitor. Etiam quis porttitor lacus.
+                    </li>
+                </ul>
+                </div>
+                <div class="col-lg-2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;">
+                    <table id="ilerlebutton">
+                        <tr>
+                            <td align="center">@Html.ActionLink("SINAVA BAŞLA", "Sorular", "Home", new { egitimID = ViewBag.egitimID }, new {@class="btn btn-success"})</td>
+                            <td align="center"><a class = "btn btn-danger" href="javascript:void(0);" onclick="history.go(-1);">GERİ</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

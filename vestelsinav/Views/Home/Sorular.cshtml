@@ -1,0 +1,181 @@
+﻿@model vestelsinav.Models.SoruView
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+   
+    var countDown = localStorage.getItem("time");
+    
+    var x = setInterval(function() {
+
+        --countDown;
+        localStorage.setItem("time", countDown);
+        var minutes = Math.floor(countDown / 60).toString();
+        var seconds = Math.floor(countDown % 60).toString();
+
+        document.getElementById("demo").innerHTML = "<b>"+minutes + "</b> dakika <b>"+ seconds + "</b> saniye";
+
+        if (countDown < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "";
+            Swal.fire({
+                type: 'error',
+                title: 'Süreniz doldu !'
+            }).then(function (msg) {
+                window.location.href = '@Url.Action("Index", "Home")';
+            })
+        }
+    }, 1000);
+</script>
+
+<div class="container">
+     <div class="row">
+         <div id="demo">
+         </div>
+        <div class="col-lg-12">
+            <div class="row">
+                <div id="questionContent" class="col-lg-12 border" style="padding-bottom:2%;margin-top:10%;">
+                    @Model.soruIcerigi
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 border" style="border-top:0px;">                    
+                    @{
+                        var i = Model.kayitliCevap;
+                        if (i == 'A' || i == 'B' || i == 'C' || i == 'D')
+                        {
+                            if (i == 'A')
+                            {
+                                <div class="radio" style="margin-top:0px;">
+                                    <label><input checked="checked" type="radio" name="optradio" id="answer1" value="A">@Model.aSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer2" value="B">@Model.bSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer3" value="C">@Model.cSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer4" value="D">@Model.dSecenegi</label>
+                                </div>
+                            }
+                            else if (i == 'B')
+                            {
+                                <div class="radio" style="margin-top:0px;">
+                                    <label><input type="radio" name="optradio" id="answer1" value="A">@Model.aSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input checked="checked" type="radio" name="optradio" id="answer2" value="B">@Model.bSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer3" value="C">@Model.cSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer4" value="D">@Model.dSecenegi</label>
+                                </div>
+                            }
+                            else if (i == 'C')
+                            {
+                                <div class="radio" style="margin-top:0px;">
+                                    <label><input type="radio" name="optradio" id="answer1" value="A">@Model.aSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer2" value="B">@Model.bSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input checked="checked" type="radio" name="optradio" id="answer3" value="C">@Model.cSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer4" value="D">@Model.dSecenegi</label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="radio" style="margin-top:0px;">
+                                    <label><input type="radio" name="optradio" id="answer1" value="A">@Model.aSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer2" value="B">@Model.bSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" id="answer3" value="C">@Model.cSecenegi</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input checked="checked" type="radio" name="optradio" id="answer4" value="D">@Model.dSecenegi</label>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="radio" style="margin-top:0px;">
+                                <label><input type="radio" name="optradio" id="answer1" value="A">@Model.aSecenegi</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" id="answer2" value="B">@Model.bSecenegi</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" id="answer3" value="C">@Model.cSecenegi</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" id="answer4" value="D">@Model.dSecenegi</label>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;">
+                    <table id="ilerlebutton">
+                        <tr>
+                            @if (Model.kacinciSoru != 0)
+                            {
+                                <td align="center"><button class="btn btn-light" onclick="progress(false, false)" id="btngeri">GERİ</button></td>
+                            }
+                            @if (Model.sonMu == false)
+                            {
+                                <td align="center"><button class="btn btn-light" onclick="progress(true, false)" id="btnileri">İLERİ</button></td>
+                            }
+                            else
+                            {
+                                <td align="center"><button class="btn btn-primary" onclick="progress(true, true)" id="btnileri">KAYDET VE BİTİR</button></td>
+                            }
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let model = @Html.Raw(Json.Encode(Model));
+
+    function progress (ileriYon, isDone) {
+
+        const questionsLink = "@Url.Action("Sorular", "Home")";
+        const finishLink = "@Url.Action("Index", "Home")";
+
+        var radioValue = $("input[name='optradio']:checked").val();
+        var jsonModel = {
+            hareketID: model.hareketID,
+            egitimID: model.egitimID,
+            secenek: radioValue,
+            ileriYon: ileriYon,
+            isDone: isDone,
+            soruID: model.soruID,
+            kacinciSoru: model.kacinciSoru
+        };
+
+        $.post(questionsLink, { model: jsonModel})
+            .done(function(msg){
+                if(msg == "OK"){
+                    window.location.href = questionsLink;
+                }else if(msg == "FINISH"){
+                    window.location.href = finishLink;
+                }
+            })
+            .fail(function(xhr, status, error) {
+                alert(error);
+            });
+    }
+</script>

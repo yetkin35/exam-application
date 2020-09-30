@@ -1,0 +1,172 @@
+﻿html body{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 0px;
+    background-image: url("../image/bg.png");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url(../fonts/OpenSans-Regular.woff);
+}
+
+@media screen and (max-width: 600px) {
+  table thead {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    display: block;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+.navbar-nav > li > a {
+    text-align: center;
+}
+@media screen and (max-width: 992px) {
+  .loginTitle {
+    font-size: 16px;
+  }
+}
+
+.loginTitle {
+    color:red;
+    text-align:center;
+}
+
+.widthControlButton {
+    width: 100%;
+    max-width: 350px;
+}
+.widthControlInput {
+    width: 100%;
+    max-width: 540px;
+}
+.logoNav {
+    padding: 2%;
+    text-align: center;
+}
+.border {
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    padding:10px;
+}
+
+.girisForm {
+    padding: 10%;
+}
+
+.formInside {
+    padding-top:20%;
+    width: 400px;
+    height:300px;
+    background-color:aliceblue;
+    border:solid 1px aliceblue;
+    border-radius: 50px;
+}
+
+#kapsayici{
+    margin:auto;
+    width:60%;
+    height:500px;
+}
+.soru {
+    width:80%;
+    height:500px;
+    border:inherit 5px red dashed;
+    margin:auto;
+}
+
+.helperButton {
+    text-decoration: none; 
+}
+
+#ilerle {
+    float:left;
+    width:100%;
+    height:100px;
+    padding-top:20px;
+}
+#ilerlebutton {
+    margin:auto;
+    
+}
+#ilerlebutton tr td{
+    padding-left:15px;
+}
+
+#header {
+    width:100%;
+    height:50px;
+}
+.logo {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+    max-height: 30px;
+}
+#adminlogo {
+    width:100px;
+    height:30px;
+    background-image: url(../image/vestel-kirmizi-logo-buyuk.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position:relative;
+    top:10px;
+}
+
+.align-items-center {
+  -ms-flex-align: center!important;
+  align-items: center!important;
+}
+.d-flex {
+  display: -ms-flexbox!important;
+  display: flex!important;
+}
+
+.vestellogo1 {
+    width:100%;
+    max-height: 300px;
+    max-width: 600px;
+}
+
+.vestellogo2 {
+    width:80%;
+    max-height: 180px;
+    max-width: 300px;
+}
+
+#btngeri {
+    Height:53px;  
+    Width:152px;
+        }
+#btngec {
+        Height:53px; 
+        Width:152px;
+        }
+#btnileri {
+        Height:53px; 
+        Width:152px;
+        }

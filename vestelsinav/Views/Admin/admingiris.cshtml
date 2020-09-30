@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row" style="margin-top: 10%;">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+            <form method="POST">
+                <h3 class="loginTitle"><b>VESTEL SINAV GİRİŞ EKRANI</b></h3>
+                <hr />
+                <div class="form-group">
+                    <label>Sicil Numaranız :</label>
+                    <input class="form-control widthControlInput" name="sicilNo">
+                    <small class="form-text text-muted" style="color:red;">@ViewBag.hataMesajı</small>
+                </div>
+                <div class="form-group">
+                    <label>Şifre :</label>
+                    <input type="password" class="form-control widthControlInput" name="sifre">
+                    <small class="form-text text-muted" style="color:red;">@ViewBag.hataMesajı</small>
+                </div>
+                <hr />
+                <div class="text-center"><button class="btn btn-light widthControlButton">GİR</button></div>
+            </form>
+        </div>
+        <div class="col-xs-3"></div>
+    </div>
+</div>

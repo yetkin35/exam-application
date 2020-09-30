@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model vestelsinav.Models.ResultGetView
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="mt-3 mb-3 table table-bordered table-hover table-striped" id="lineList">
+                <tr>
+                    <td colspan="9" align="center"><h4>@Model.k.isim @Model.k.soyisim</h4></td>
+                </tr>
+                <tr id="table">
+                    <th class="text-center" scope="col">
+                        #
+                    </th>
+                    <th class="text-center" scope="col">
+                        Soru İçeriği
+                    </th>
+                    <th class="text-center" scope="col">
+                        A Şıkkı
+                    </th>
+                    <th class="text-center" scope="col">
+                        B Şıkkı
+                    </th>
+                    <th class="text-center" scope="col">
+                        C Şıkkı
+                    </th>
+                    <th class="text-center" scope="col">
+                        D Şıkkı
+                    </th>
+                    <th class="text-center" scope="col">
+                        Doğru Cevap
+                    </th>
+                    <th class="text-center" scope="col">
+                        Verilen Cevap
+                    </th>
+                    <th class="text-center" scope="col">
+                        Sonuç
+                    </th>
+                </tr>
+                @for (int i = 0; i < @Model.soruList.Count; i++)
+                {
+                    <tr id="tableRow_">
+                        <td align="center">
+                            <b>@(i+1)</b>
+                        </td>
+                        <td align="center">
+                            @Model.soruList.ElementAt(i).soruIcerigi
+                        </td>
+                        <td align="center">
+                            @Model.soruList.ElementAt(i).aSecenegi
+                        </td>
+                        <td align="center">
+                            @Model.soruList.ElementAt(i).bSecenegi
+                        </td>
+                        <td align="center">
+                            @Model.soruList.ElementAt(i).cSecenegi
+                        </td>
+                        <td align="center">
+                            @Model.soruList.ElementAt(i).dSecenegi
+                        </td>
+                        <td align="center">
+                            @Model.soruList.ElementAt(i).dogruCevap
+                        </td>
+                        <td align="center">
+                            @Model.verdigiCevaplar.ElementAt(i)
+                        </td>
+                        <td align="center">
+                            @if (Model.soruList.ElementAt(i).dogruCevap[0] == Model.verdigiCevaplar.ElementAt(i))
+                            {
+                                <b style="color:limegreen">Doğru</b>
+                            }
+                            else
+                            {
+                                var a = Model.verdigiCevaplar.ElementAt(i);
+                                if (a != 'A' && a != 'B' && a != 'C' && a != 'D')
+                                {
+                                    <b>Boş</b>
+                                }
+                                else
+                                {
+                                    <b style="color:red">Yanlış</b>
+
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
