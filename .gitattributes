@@ -2,4 +2,4 @@ static/* linguist-vendored
 *.csharp linguist-detectable=true
 *.html linguist-language=csharp
 *.css linguist-language=csharp
-*.js linguist-detectable=false
+*.js linguist-language=csharp
